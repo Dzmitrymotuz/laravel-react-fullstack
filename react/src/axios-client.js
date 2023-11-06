@@ -18,13 +18,14 @@ axiosClient.interceptors.response.use(
     try {
         const {response} = error;
         if (response.status === 401){
-            localStorage.removeItem('ACCESS_TOKEN')
+            localStorage.removeItem('ACCESS_TOKEN');
         } else {
             throw error;
     }           
     } catch(e){
-        console.log(e)
+        console.error(e)
     }
+    throw error;
 })
 
 export default axiosClient;

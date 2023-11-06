@@ -7,14 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignupRequest;
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     public function signup(SignupRequest $request) {
         $data = $request->validated();
-        // @var \App\Models\User $user
+        //** @var \App\Models\User $user */ 
         $user = User::create([
             'name'=>$data['name'],
             'email'=>$data['email'],
