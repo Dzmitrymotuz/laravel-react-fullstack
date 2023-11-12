@@ -23,7 +23,6 @@ export default function Signup() {
       password: passwordRef.current.value,
       password_confirmation: passwordConfirmationRef.current.value,
     }
-    console.log(payload)
 
     axiosClient.post('/signup', payload)
     .then(({data})=>{
@@ -32,9 +31,7 @@ export default function Signup() {
     })
     .catch(err=>{
       const response = err.response;
-      console.log('signup')
       if(response && response.status === 422){
-        console.log('setting errors')
         setErrors(response.data.errors)
       }
     })
